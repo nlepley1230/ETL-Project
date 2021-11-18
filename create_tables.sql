@@ -11,14 +11,17 @@ Create Tables
 ***********************************/
 
 CREATE TABLE movies (
-    movie_id INT NOT NULL,
-    title VARCHAR(50)   NOT NULL,
-    director VARCHAR(50),
-    cast_name VARCHAR(50),
-    country VARCHAR(50),
+    movie_id INT PRIMARY KEY,
+    title VARCHAR   NOT NULL,
+    director VARCHAR,
+    cast_name VARCHAR,
+    country VARCHAR,
     date_added DATE,
-    CONSTRAINT pk_movie PRIMARY KEY (
-        movie_id) 
+    release_year INT,
+    rating VARCHAR,
+    duration VARCHAR,
+    listed_in VARCHAR,
+    description VARCHAR
 );
 
 
@@ -32,7 +35,7 @@ CREATE TABLE streaming (
 
 
 CREATE TABLE movie_streaming (
-    streaming_id INT NOT NULL,
+    id SERIAL PRIMARY KEY,
     movie_id INT NOT NULL,
-	PRIMARY KEY (streaming_id,movie_id)
+    streaming_id INT NOT NULL
 );
